@@ -156,22 +156,31 @@ $(document).on('click', '.status.ip', function(e){
     $(e.target).html('In Review')
 })
 
+// ir to approved
 $(document).on('click', '.status.ir', function(e){
-    alert('Status changed')
-    console.log('wa');
-    console.log($(e.target.parentElement));
-    $(e.target.parentElement).attr('class', 'status a')
-    $(e.target).html('Approved')
+    let conf = confirm('Are you sure to update to Approved ?')
+    if(conf){
+        alert('Status changed') 
+        // console.log('wa');
+        // console.log($(e.target.parentElement));
+        $(e.target.parentElement).attr('class', 'status a')
+        $(e.target).html('Approved')
+    }
+
 })
 
-
-
-
+// Reset Approve to Waiting
 $(document).on('click', '.status.a', function(e){
-    alert('Status changed')
-    console.log($(e.target.parentElement));
-    $(e.target.parentElement).attr('class', 'status w')
-    $(e.target).html('Waiting')
+    let conf = confirm('Are you sure to Reset to Waiting ?')
+    if(conf){
+        alert('Status Reset !!!')
+        // console.log($(e.target.parentElement));
+        $(e.target.parentElement).attr('class', 'status w')
+        $(e.target).html('Waiting')
+
+        // remove check
+        console.log($(e.target.parentElement.parentElement).siblings('.list-check').children().remove())
+    }
 })
 
 // checkbox
