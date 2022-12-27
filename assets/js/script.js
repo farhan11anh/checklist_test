@@ -104,9 +104,7 @@ $(document).on('click', '.btn-add', function(){
         $('#add-form').remove()
         $('.body-c').append(`<div class="task-list">
                     <div class="list-check">
-                        <div class="check">
-                            <span>✓</span>
-                        </div>
+                       
                     </div>
                     <div class="list-l">
                         ${isi}
@@ -156,7 +154,7 @@ $(document).on('click', '.status.ip', function(e){
     $(e.target).html('In Review')
 })
 
-// ir to approved
+// In Review to approved
 $(document).on('click', '.status.ir', function(e){
     let conf = confirm('Are you sure to update to Approved ?')
     if(conf){
@@ -165,6 +163,13 @@ $(document).on('click', '.status.ir', function(e){
         // console.log($(e.target.parentElement));
         $(e.target.parentElement).attr('class', 'status a')
         $(e.target).html('Approved')
+
+        // add check
+        $(e.target.parentElement.parentElement).siblings('.list-check').html(`
+            <div class="check">
+                <span>✓</span>
+            </div>
+        `)
     }
 
 })
@@ -183,7 +188,7 @@ $(document).on('click', '.status.a', function(e){
     }
 })
 
-// checkbox
+// checkbox switch
 $(document).on('click', '.list-check', (e)=>{
     // console.log($(e.target.parentElement).attr('class'));
     if($(e.target.parentElement.parentElement).attr('class') == 'list-check'){
