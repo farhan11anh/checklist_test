@@ -101,6 +101,11 @@ $(document).on('click', '.oute', (e)=>{
     // console.log($(e.currentTarget.parentElement).siblings().children('.outer'));
     $(e.currentTarget).attr('class', 'outer')
     $(e.currentTarget.parentElement).siblings().children('.outer').attr('class', 'oute')
+
+    let content = $(e.currentTarget).siblings('.title-card').html()
+    // console.log(content);
+    // change right content
+    $('.hc-left>h2').html(content)
 })
 
 $(document).on('input', '.search', (e)=>{
@@ -127,12 +132,14 @@ $(document).on('input', '.search', (e)=>{
 
         i++
         // console.log(i);
+
+        // update total task after search
+        totalTask = res.length
+    
+        $('.count-task').html(totalTask)
     
         if(i < 6){
 
-            // update total task after search
-            totalTask = res.length
-            $('.count-task').html(totalTask)
 
             // get first letter on first word and second word
             const [firstWord, secondWord] = name.split(' ')
