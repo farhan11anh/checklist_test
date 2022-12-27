@@ -17,6 +17,27 @@ let taskz = [
     {
         name: "Landing Page 2"
     },
+    {
+        name: "Landing Page 3"
+    },
+    {
+        name: "Market Place"
+    },
+    {
+        name: "Payment Gateway"
+    },
+    {
+        name: "Chat Box"
+    },
+    {
+        name: "Chat Box 2"
+    },
+    {
+        name: "Landing Page 4"
+    },
+    {
+        name: "Login Page"
+    },
 ]
 
 // show total list task 
@@ -36,23 +57,41 @@ taskz.map(task=>{
 
 // include every list to variable
 let contain = ""
+
+//count index
+let i = 0
 res.forEach((name)=>{
+    i++
+    // console.log(i);
 
-    // get first letter on first word and second word
-    const [firstWord, secondWord] = name.split(' ')
-    const initial = firstWord.charAt(0) + secondWord.charAt(0)
-    // console.log(initial);
+    if(i < 6){
+        // get first letter on first word and second word
+        const [firstWord, secondWord] = name.split(' ')
+        const initial = firstWord.charAt(0) + secondWord.charAt(0)
+        // console.log(initial);
 
-    contain = contain + `
-        <div class="project">
-            <div class="oute">
-                <div class="card">
-                    <div class="big-text" >${initial}</div>
+        contain = contain + `
+            <div class="project">
+                <div class="oute">
+                    <div class="card">
+                        <div class="big-text" >${initial}</div>
+                    </div>
+                </div>
+                <div class="title-card">${name}</div>
+            </div>
+        `
+    } else if(i == 6){
+        contain = contain + `
+            <div class="project">
+                <div class="out">
+                    <div class="card-last">
+                        <div class="big-text" >${totalTask-5} +</div>
+                    </div>
                 </div>
             </div>
-            <div class="title-card">${name}</div>
-        </div>
-    `
+        `
+    }
+
 })
 
 $('.projects').html(contain)
@@ -80,37 +119,51 @@ $(document).on('input', '.search', (e)=>{
 
     // declare contain
     let contain = ''
-
+    let i = 0
     // fill constain for search
     res.forEach((name)=>{
         // console.log(name);
         // contain = contain + 'b'
 
-         // get first letter on first word and second word
-        const [firstWord, secondWord] = name.split(' ')
-        const initial = firstWord.charAt(0) + secondWord.charAt(0)
-        // console.log(initial);
+        i++
+        // console.log(i);
+    
+        if(i < 6){
 
-        contain = contain + `
-            <div class="project">
-                <div class="oute">
-                    <div class="card">
-                        <div class="big-text" >${initial}</div>
+            // update total task after search
+            totalTask = res.length
+            $('.count-task').html(totalTask)
+
+            // get first letter on first word and second word
+            const [firstWord, secondWord] = name.split(' ')
+            const initial = firstWord.charAt(0) + secondWord.charAt(0)
+            // console.log(initial);
+    
+            contain = contain + `
+                <div class="project">
+                    <div class="oute">
+                        <div class="card">
+                            <div class="big-text" >${initial}</div>
+                        </div>
+                    </div>
+                    <div class="title-card">${name}</div>
+                </div>
+            `
+        } else if(i == 6){
+            contain = contain + `
+                <div class="project">
+                    <div class="out">
+                        <div class="card-last">
+                            <div class="big-text" >${totalTask-5} +</div>
+                        </div>
                     </div>
                 </div>
-                <div class="title-card">${name}</div>
-            </div>
-        `
+            `
+        }
 
     })
 
     // console.log(contain);
-
-    // update total task after search
-    totalTask = res.length
-    $('.count-task').html(totalTask)
-
-
     // insert result from search
     $('.projects').html(contain)
 })
