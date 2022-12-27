@@ -184,27 +184,48 @@ $(document).on('click', '.status.a', function(e){
         $(e.target).html('Waiting')
 
         // remove check
-        console.log($(e.target.parentElement.parentElement).siblings('.list-check').children().remove())
+        $(e.target.parentElement.parentElement).siblings('.list-check').children().remove()
     }
 })
 
 // checkbox switch
 $(document).on('click', '.list-check', (e)=>{
+
     // console.log($(e.target.parentElement).attr('class'));
     if($(e.target.parentElement.parentElement).attr('class') == 'list-check'){
-        $(e.target.parentElement).remove()
+        const conf = confirm('Are you sure to uncheck, and reset status to Waiting ?')
+        if(conf){
+            // uncheck
+            $(e.target.parentElement).remove()
+
+            // change status
+            $(e.currentTarget).siblings('.list-r').children().attr('class', 'status w');
+            $(e.currentTarget).siblings('.list-r').children().children().html('Waiting');
+        }
+
     }
 
     if($(e.target.parentElement).attr('class') !== "check"){
-        // console.log($(e.target).attr('class'));
-        $(e.target).html(`
-            <div class="check">
-                <span>✓</span>
-            </div>
-        `)
+        const conf = confirm('Are you sure to check, and reset status to Approved ?')
+        if(conf){
+            // console.log($(e.target).attr('class'));
+            $(e.target).html(`
+                    <div class="check">
+                        <span>✓</span>
+                    </div>
+                `)
+
+            // change status
+            $(e.currentTarget).siblings('.list-r').children().attr('class', 'status a');
+            $(e.currentTarget).siblings('.list-r').children().children().html('Approved');
+        }
+
     }
 
 })
+
+
+
 
 
 
