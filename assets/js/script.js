@@ -140,18 +140,19 @@ $('.add').click(function(){
 // change status 
 $(document).on('click', '.status.w', function(e){
     alert('Status changed')
-    console.log('wa');
-    console.log($(e.target.parentElement));
-    $(e.target.parentElement).attr('class', 'status ip')
-    $(e.target).html('In Proggress')
+    // console.log('wa');
+    // console.log($(e.currentTarget));
+    $(e.currentTarget).attr('class', 'status ip')
+    $(e.currentTarget).children().html('In Proggress')
 })
 
 $(document).on('click', '.status.ip', function(e){
     alert('Status changed')
     console.log('wa');
-    console.log($(e.target.parentElement));
-    $(e.target.parentElement).attr('class', 'status ir')
-    $(e.target).html('In Review')
+    // console.log($(e.currentTarget).children());
+    // console.log($(e.target));
+    $(e.currentTarget).attr('class', 'status ir')
+    $(e.currentTarget).children().html('In Review')
 })
 
 // In Review to approved
@@ -161,8 +162,8 @@ $(document).on('click', '.status.ir', function(e){
         alert('Status changed') 
         // console.log('wa');
         // console.log($(e.target.parentElement));
-        $(e.target.parentElement).attr('class', 'status a')
-        $(e.target).html('Approved')
+        $(e.currentTarget).attr('class', 'status a')
+        $(e.currentTarget).children().html('Approved')
 
         // add check
         $(e.target.parentElement.parentElement).siblings('.list-check').html(`
@@ -180,8 +181,8 @@ $(document).on('click', '.status.a', function(e){
     if(conf){
         alert('Status Reset !!!')
         // console.log($(e.target.parentElement));
-        $(e.target.parentElement).attr('class', 'status w')
-        $(e.target).html('Waiting')
+        $(e.currentTarget).attr('class', 'status w')
+        $(e.currentTarget).children().html('Waiting')
 
         // remove check
         $(e.target.parentElement.parentElement).siblings('.list-check').children().remove()
