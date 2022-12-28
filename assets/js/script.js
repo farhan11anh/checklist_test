@@ -227,6 +227,17 @@ $(document).on('click', '.list-check', (e)=>{
 
 
 
+// show modal 
+$('.ava-add').click(()=>{
+    $('.outer').css('display', 'block')
+    $('.modal').css('display', 'block')
+})
+
+$('.close-btn').click(()=>{
+    $('.outer').css('display', 'none')
+    $('.modal').css('display', 'none')
+})
+
 
 
 

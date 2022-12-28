@@ -100,26 +100,48 @@
         color: rgba(57, 51, 51, 0.65);
     }
     .hc-right {
-        flex-basis: 30%;
+        flex-basis: 35%;
     }
     .ava {
-        width: 40px; height: 40px;
+        width: 35px; height: 35px;
         border-radius: 100%;
         overflow: hidden;
         background-color: #ffffff;
         display: inline-block;
-        margin-left: -10px;
+        margin-left: -15px;
         float: right;
         position: relative;
         margin-top: 20px;
     }
 
+    .ava-add {
+        width: 20px; height: 20px;
+        border-radius: 100%;
+        overflow: hidden;
+        background-color: #ffffff;
+        display: inline-block;
+        float: right;
+        position: relative;
+        margin-top: 26px; margin-left: 10px;
+        border: 1.5px solid gray;
+    }
+
     .ava img {
-        width: 77%;
+        width: 80%;
         border-radius: 100%;
         position: absolute;
-        top:14%; left: 49%;
+        top:10%; left: 49%;
         transform: translate(-50%);
+    }
+
+    .ava-add img {
+        width: 80%;
+        border-radius: 100%;
+        position: absolute;
+        top:11%; left: 49%;
+        transform: translate(-50%);
+        opacity: 0.5;
+
     }
 
     .task-list {
@@ -196,7 +218,7 @@
     }
 
     .list-check {
-        width: 15px; height: 15px; border: 0.2px solid rgba(0, 0, 0, 0.621); 
+        width: 15px; height: 15px; border: 0.2px solid rgba(0, 0, 0, 0.492); 
         border-radius: 100px;
         overflow: hidden;
         cursor: pointer;
@@ -363,6 +385,98 @@
         width: 60%;
         margin-left:6px; margin-top: 5.5px;
     }
+
+    .outer {
+        width: 105vw;
+        height: 105vh;
+        background-color: rgba(0, 0, 0, 0.687);
+        top:-3px; left: -3px;
+        position: absolute;
+        z-index: 4;
+        display: none;
+    }
+    .modal {
+        position: absolute;
+        background-color: #a4acd0;
+        width: 400px;
+        height: 200px;
+        top: 35%;
+        left: 37%;
+        z-index: 5;
+        border-radius: 10px;
+        /* display: none; */
+        animation: 1s fadeIn;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        25% {
+            opacity: 25%;
+        }
+        50%{
+            opacity: 50%;
+        }
+        75%{
+            opacity: 75%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    .close-btn {
+        width: 25px;
+        height: 25px;
+        background-color: #252a40a4;
+        border-radius: 100px;
+        color: rgba(255, 255, 255, 0.608);
+        position: absolute;
+        right:6px; top:6px;
+    }
+    .close-btn .bt {
+        position: absolute;
+        left: 50%;
+        top: 10%;
+        transform: translate(-50%);
+        cursor: pointer;
+    }
+
+    /* styling add user modal */
+    .list-user {
+        width: 90%;
+        margin-left: auto; margin-right: auto;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    .user {
+        flex-basis: 20%;
+        /* background-color: red; */
+    }
+    .user .card-user {
+        width: 70px;
+        height: 70px;
+        background-color: yellow;
+        border-radius: 100%;
+        margin-right: auto; margin-left: auto;
+        overflow: hidden;
+    }
+
+    .user .card-user img {
+        width: 100%;
+    }
+
+    .add-user {
+        background-color: #252A40;
+        width: fit-content;
+        padding: 2px 15px;
+        color: white;
+        border-radius: 20px;
+        margin-right: auto; margin-left: auto;
+    }
 </style>
 
 <body>
@@ -440,7 +554,13 @@
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae nostrum eaque ex eius labore.</p>
                 </div>
                 <div class="hc-right">
+                    
                     <div class="list-h">
+
+                        <div class="ava-add">
+                            <img src="./assets/img/plus.png" alt="">
+                        </div>
+
                         <div class="ava">
                             <img src="./assets/img/ava1.jpg" alt="">
                         </div>
@@ -450,13 +570,14 @@
                         <div class="ava">
                             <img src="./assets/img/ava3.jpg" alt="">
                         </div>
+
                     </div>
                 </div>
             </div>
             <div class="body-c">
                 <h4>Today</h4>
 
-                <div class="task-list">
+                <!-- <div class="task-list">
                     <div class="list-check">
                         <div class="check">
                             <span>✓</span>
@@ -470,7 +591,7 @@
                             <div class="st-app">Aproved</div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- <div id="add-form" class="task-list">
                     <div class="add-list">
@@ -481,6 +602,41 @@
 
             </div>
             <div class="add"><strong class="sign" >+</strong></div>
+        </div>
+    </div>
+
+
+    <div class="outer"></div>
+    <div class="modal">
+        <div class="close-btn">
+            <div class="bt">X</div>
+        </div>
+        <div class="list-user">
+            <div class="user">
+                <div class="card-user">
+                    <img src="./assets/img/ava4.jpg" alt="">
+                </div>
+                <div class="add-user">add</div>
+            </div>
+            <div class="user">
+                <div class="card-user">
+                    <img src="./assets/img/ava5.webp" alt="">
+                </div>
+                <div class="add-user">add</div>
+            </div>
+            <div class="user">
+                <div class="card-user">
+                    <img src="./assets/img/ava6.jpg" alt="">
+                </div>
+                <div class="add-user">add</div>
+            </div>
+            <div class="user">
+                <div class="card-user">
+                    <img src="./assets/img/ava7.png" alt="">
+                </div>
+                <div class="add-user">add</div>
+            </div>
+ 
         </div>
     </div>
 
