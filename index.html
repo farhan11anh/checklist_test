@@ -501,11 +501,44 @@
         text-align: center;
         color: white;
     }
+
+    .pattern1 {
+        position: absolute;
+        overflow: hidden;
+        width: 70px;
+        height: 110px;
+        top: -10px;
+        right: 0;
+        opacity: 0.5;
+    }
+    .pattern2 {
+        position: absolute;
+        overflow: hidden;
+        width: 100px;
+        height: 70px;
+        bottom: -10px;
+        left: 80px;
+        opacity: 0.5;
+    }
+    .pattern1 img {
+        width: 140px ;
+    }
+    .pattern2 img {
+        width: 140px ;
+    }
 </style>
 
 <body>
     <div class="container">
         <div class="content left">
+            <!-- // pattern -->
+            <div class="pattern1">
+                <img src="./assets/img/pattern.png" alt="">
+            </div>
+            <div class="pattern2">
+                <img src="./assets/img/pattern.png" alt="">
+            </div>
+
             <div class="mini-icon">
                 <img src="./assets/img/stack3.png" alt="">
             </div>
@@ -672,6 +705,7 @@
  
         </div>
     </div>
+
 
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
