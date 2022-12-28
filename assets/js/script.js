@@ -229,12 +229,33 @@ $(document).on('click', '.list-check', (e)=>{
 
 // show modal 
 $('.ava-add').click(()=>{
-    $('.outer').css('display', 'block')
+    $('.outer-mod').css('display', 'block')
     $('.modal').css('display', 'block')
 })
 
 $('.close-btn').click(()=>{
-    $('.outer').css('display', 'none')
+    $('.outer-mod').css('display', 'none')
+    $('.modal').css('display', 'none')
+})
+
+let countUser = []
+// add user member 
+$(document).on('click', '.add-user',(e)=>{
+    countUser.push('user')
+    // console.log(countUser.length);
+
+    $('.text-ava').html(`${countUser.length}+`)
+
+    // show count ava
+    $('.text-ava').css('display', 'block')
+
+    // change to added
+    $(e.currentTarget).html('added')
+    $(e.currentTarget).attr('class', 'added-user')
+    alert("Success to add new Member!!!")
+
+    //close modal
+    $('.outer-mod').css('display', 'none')
     $('.modal').css('display', 'none')
 })
 

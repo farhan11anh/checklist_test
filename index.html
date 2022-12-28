@@ -108,7 +108,7 @@
         overflow: hidden;
         background-color: #ffffff;
         display: inline-block;
-        margin-left: -15px;
+        margin-left: -16px;
         float: right;
         position: relative;
         margin-top: 20px;
@@ -132,6 +132,13 @@
         position: absolute;
         top:10%; left: 49%;
         transform: translate(-50%);
+    }
+
+    .ava .text-ava {
+        position: absolute;
+        top:26%; left: 69%;
+        transform: translate(-50%);
+        display: none;
     }
 
     .ava-add img {
@@ -386,7 +393,7 @@
         margin-left:6px; margin-top: 5.5px;
     }
 
-    .outer {
+    .outer-mod {
         width: 105vw;
         height: 105vh;
         background-color: rgba(0, 0, 0, 0.687);
@@ -404,7 +411,7 @@
         left: 37%;
         z-index: 5;
         border-radius: 10px;
-        /* display: none; */
+        display: none;
         animation: 1s fadeIn;
     }
 
@@ -450,7 +457,7 @@
         display: flex;
         gap: 20px;
         justify-content: center;
-        margin-top: 50px;
+        margin-top: 0px;
     }
     .user {
         flex-basis: 20%;
@@ -476,6 +483,23 @@
         color: white;
         border-radius: 20px;
         margin-right: auto; margin-left: auto;
+    }
+
+    .added-user {
+        background-color: #4b5378;
+        width: fit-content;
+        padding: 2px 15px;
+        color: white;
+        border-radius: 20px;
+        margin-right: auto; margin-left: auto;
+    }
+
+    .title-mod{
+        margin-top: 50px;
+    }
+    .title-mod h3 {
+        text-align: center;
+        color: white;
     }
 </style>
 
@@ -560,7 +584,11 @@
                         <div class="ava-add">
                             <img src="./assets/img/plus.png" alt="">
                         </div>
+            
 
+                        <div class="ava">
+                           <div class="text-ava">1+</div>
+                        </div>
                         <div class="ava">
                             <img src="./assets/img/ava1.jpg" alt="">
                         </div>
@@ -606,11 +634,16 @@
     </div>
 
 
-    <div class="outer"></div>
+    <div class="outer-mod"></div>
     <div class="modal">
         <div class="close-btn">
             <div class="bt">X</div>
         </div>
+
+        <div class="title-mod">
+            <h3>ADD NEW MEMBER</h3>
+        </div>
+
         <div class="list-user">
             <div class="user">
                 <div class="card-user">
